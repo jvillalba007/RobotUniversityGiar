@@ -18,6 +18,6 @@ module.exports = {
     error_file: '/home/debian/workspaces/RobotUniversityGiar/logs/rugiar-error.log',
     log_date_format: 'YYYY-MM-DD HH:mm:ss',
     watch: false,
-    max_memory_restart: '2G',
+    max_memory_restart: '3G',
   }]
 };
