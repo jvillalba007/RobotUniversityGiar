@@ -49,7 +49,9 @@ function mountSimIframe() {
   // server-side (see viser_viewer.py) but is a persisted *message* the client
   // applies asynchronously after connecting — this URL flag is read at first
   // paint, so the panel never flashes light before flipping dark.
-  iframe.src = `http://localhost:${viserPort}/?darkMode`;
+  // Use current page's hostname so it works externally (not localhost)
+  const host = location.hostname;
+  iframe.src = `http://${host}:${viserPort}/?darkMode`;
   $('#view-sim').appendChild(iframe);
 }
 
@@ -156,7 +158,10 @@ function hideTransitionOverlay() {
 // up and serving, not still mid-boot.
 function reloadSimViewer() {
   const simIframe = document.querySelector('#view-sim iframe');
-  if (simIframe && viserPort) simIframe.src = `http://localhost:${viserPort}/?darkMode`;
+  if (simIframe && viserPort) {
+    const host = location.hostname;
+    simIframe.src = `http://${host}:${viserPort}/?darkMode`;
+  }
 }
 $('#btn-reload-sim').addEventListener('click', reloadSimViewer);
 
