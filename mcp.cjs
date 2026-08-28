@@ -2,7 +2,7 @@ module.exports = {
   apps: [{
     name: 'rugiar-mcp',
     script: '/home/debian/workspaces/RobotUniversityGiar/.venv/bin/python',
-    args: 'rugiar_mcp/server.py',
+    args: '-m rugiar_mcp.server',
     cwd: '/home/debian/workspaces/RobotUniversityGiar',
     interpreter: 'none',
     env: {
